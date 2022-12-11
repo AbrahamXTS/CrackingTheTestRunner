@@ -1,0 +1,24 @@
+extends ../layout/index
+
+block content
+	div.py-10
+		h1.text-4xl.my-10.font-extrabold.text-center Test
+			span.font-normal Runner
+		h2.text-center.text-2xl.font-bold ¡Bienvenido 
+			span.text-blue-600 #{usuario.login}
+			span.text-black !
+		p.text-normal.text-center.mt-5 Tus repositorios: 
+
+	div(class="mx-auto grid grid-cols-4 mt-5 mb-14 w-5/6 gap-6")
+		each repositorio in repositorios
+			a(href="/repositorie/" + repositorio.name class="max-w-sm p-6 flex flex-col justify-center items-center h-28 bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100") 
+				p.font-bold= repositorio.name
+				div.flex.gap-5
+					div.flex.items-center.mt-2.gap-2
+						svg.w-5.h-5(fill='none' stroke='currentColor' viewbox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+							path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z')
+						p= repositorio.stargazers_count
+					div.flex.items-center.mt-2.gap-2
+						svg.w-5.h-5(fill='none' stroke='currentColor' viewbox='0 0 24 24' xmlns='http://www.w3.org/2000/svg')
+							path(stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z')
+						p= repositorio.forks

@@ -1,0 +1,49 @@
+extends ../layout/index
+
+block content
+	div(class="py-10")
+		h1(class="text-4xl my-10 font-extrabold text-center") Test
+			span(class="font-normal") Runner
+		h2(class="text-center text-2xl font-bold")= title
+
+	div(class="mx-auto my-10 w-5/6 grid grid-cols-2 gap-10")
+		.timeline
+			.timeline__wrap
+				.timeline__items
+					each commit in commits
+						a.timeline__item.block(href= commit.html_url target="_blank")
+							.timeline__content
+								div(class="flex items-center gap-4 mb-3")
+									img(class="w-8 h-8 rounded-full" src= commit.author.avatar_url alt= commit.author.login)
+									p.font-bold= commit.author.login
+								p= dateFormater(commit.commit.committer.date)
+								p= commit.commit.message
+		div(class="w-full bg-white border border-gray-200 rounded-lg shadow-md p-10 h-[520px]")
+			ul
+				li
+					p.font-bold.mb-2 Descripción: 
+					p.font-normal.mb-10= repositorie.description
+				li
+					p.font-bold.mb-2 Tipo de repositorio: 
+					p.font-normal.mb-10= repositorie.private ? "Privado" : "Público"
+				li
+					p.font-bold.mb-2 Lenguaje principal: 
+					p.font-normal.mb-10= repositorie.language	
+				li
+					p.font-bold.mb-2 Número de forks: 
+					p.font-normal.mb-10= repositorie.forks_count
+				li
+					p.font-bold.mb-2 Última actualización: 
+					p.font-normal.mb-10= dateFormater(repositorie.pushed_at)
+	
+
+
+
+	script(src='/dist/js/timeline.min.js')
+	link(href='/dist/css/timeline.min.css' rel='stylesheet')
+
+	script(type="text/javascript").
+		timeline(document.querySelectorAll('.timeline'), {
+			verticalStartPosition: 'right',
+		});
+
