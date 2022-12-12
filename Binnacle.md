@@ -1,4 +1,4 @@
-# Work log - Fist Sprint
+# Work log - First Sprint
 
 ## First meeting - Preliminar concepts
 - Date: 15th of September of 2022.
