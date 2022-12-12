@@ -4,7 +4,7 @@
 	- Date: 30th of November of 2022.
 	- Hour: 21:30 hrs to 23:00 hrs.
 	- Details of the meeting:
-		- We met to talk about the third installment.
+		- We met to talk about the third increment.
 		- We discuss what we need to deliver and what we want to focus on 100%.
 		- We distribute responsibilities
 
